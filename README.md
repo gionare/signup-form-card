@@ -4,11 +4,25 @@
 `npm install`
 `npm i styled-components`
 
-## Welcome! 👋
+## Table of contents
 
-## The challenge
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-Your users should be able to:
+## Overview
+
+### The challenge
+
+Users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
@@ -16,36 +30,96 @@ Your users should be able to:
   - Any `input` field is empty. The message for this error should say _"[Field Name] cannot be empty"_
   - The email address is not formatted correctly (i.e. a correct email address should have this structure: `name@host.tld`). The message for this error should say _"Looks like this is not an email"_
 
-## Building your project
+### Screenshot
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+<img src="public/images/Screenshot.png" width="450px">
 
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.<hr>
+### Links
 
-<body>
-Learn to code by watching others
+- Live Site URL: [Vercel Live URL]()
 
-See how experienced developers solve problems in real-time. Watching scripted tutorials is great,
-but understanding how developers think is invaluable.
+## My process
 
-Try it free 7 days then $20/mo. thereafter
+### Built with
 
-First Name
-Last Name
-Email Address
-Password
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Styled Components](https://styled-components.com/) - For styles
 
-Claim your free trial
+### What I Improved
 
-By clicking the button, you are agreeing to our Terms and Services
+- Use React state to manage form input values and validation errors
+- Implement form validation logic to ensure data integrity
+- Utilize styled-components to style React components
+- Handle form submission events and prevent default behavior
 
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
-    </p>
-  </footer>
-</body>
+Example of handling form submission in React:
+
+```jsx
+const [firstName, setFirstName] = useState("");
+const [lastName, setLastName] = useState("");
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [errors, setErrors] = useState([]);
+const [success, setSuccess] = useState("");
+```
+
+```jsx
+const handleSubmit = (event) => {
+  event.preventDefault();
+
+  const errorsArray = [];
+  if (!firstName.trim()) {
+    errorsArray.push("First Name cannot be empty");
+  }
+  if (!password.trim()) {
+      errorsArray.push("Password cannot be empty");
+    }
+  ...
+
+  if (errorsArray.length > 0) {
+    setErrors(errorsArray);
+    return;
+  }
+};
+```
+
+**Example of rendering error messages in React:**
+
+```jsx
+{
+  errors.length > 0 && (
+    <div className="error-messages">
+      {errors.map((error, index) => (
+        <p key={index}>{error}</p>
+      ))}
+    </div>
+  );
+}
+```
+
+### Continued development
+
+- Implementing more advanced form validation techniques
+- Exploring other CSS-in-JS libraries and styling methodologies
+
+### Useful resources
+
+- [React Documentation](https://reactjs.org/docs/getting-started.html) - Official documentation for React
+- [Styled-components Documentation](https://styled-components.com/docs) - Documentation for styled-components
+- [CSS-Tricks](https://css-tricks.com/) - A great resource for learning CSS and front-end development techniques
+- [Galaxy Button](https://www.buttons.cool/button/bGzgMGo)
+
+## Author
+
+- Giorgi Nareklishvili - [Portfolio](https://portfolio-giorgi-nareklishvili.vercel.app/)
+- LinkedIn - [@gionare](https://www.linkedin.com/in/gionare/)
+
+- [GitHub Pages](https://github.com/gionare)
+
+## Acknowledgments
+
+@bitcamp
